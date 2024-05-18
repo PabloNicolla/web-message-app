@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  postgres-db:
+    image: postgres
+    restart: always
+    container_name: postgres-db-web-message-app
+    ports:
+      - 5500:5432
+    environment:
+      POSTGRES_USER: postgresuser
+      POSTGRES_PASSWORD: postgrespassword
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+
+volumes:
+  postgres:
