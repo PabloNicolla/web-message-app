@@ -26,9 +26,7 @@ export const ActionTooltip = ({
       <Tooltip delayDuration={50}>
         <TooltipTrigger asChild>{children}</TooltipTrigger>
         <TooltipContent side={side} align={align}>
-          <p className="font-semibold text-sm capitalize">
-            {label.toLowerCase()}
-          </p>
+          <p className="text-sm font-semibold">{label}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
