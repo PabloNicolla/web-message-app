@@ -131,7 +131,9 @@ export const MembersModal = () => {
                           <DropdownMenuPortal>
                             <DropdownMenuSubContent>
                               <DropdownMenuItem
-                                onClick={() => onRoleChange(member.id, "GUEST")}
+                                onClick={() =>
+                                  void onRoleChange(member.id, "GUEST")
+                                }
                               >
                                 <Shield className="mr-2 h-4 w-4" />
                                 Guest
@@ -141,7 +143,7 @@ export const MembersModal = () => {
                               </DropdownMenuItem>
                               <DropdownMenuItem
                                 onClick={() =>
-                                  onRoleChange(member.id, "MODERATOR")
+                                  void onRoleChange(member.id, "MODERATOR")
                                 }
                               >
                                 <ShieldCheck className="mr-2 h-4 w-4" />
@@ -156,7 +158,7 @@ export const MembersModal = () => {
                         <DropdownMenuSeparator />
                         <DropdownMenuItem
                           onClick={() => {
-                            onKick(member.id);
+                            void onKick(member.id);
                           }}
                         >
                           <Gavel className="mr-2 h-4 w-4" />
