@@ -70,7 +70,12 @@ export const EditServerModal = () => {
   };
 
   const handleClose = () => {
-    form.reset();
+    if (server) {
+      form.reset({
+        name: server.name,
+        imageUrl: server.imageUrl,
+      });
+    }
     onClose();
   };
 
