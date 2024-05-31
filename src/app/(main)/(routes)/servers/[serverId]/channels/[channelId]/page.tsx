@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { currentProfile } from "@/lib/current-profile";
 
-import { ChatHeader } from "@/components/chat/chat-chatHeader";
+import { ChatHeader } from "@/components/chat/chat-header";
 
 interface ChannelIdPageProps {
   params: {
@@ -34,7 +34,7 @@ const ChannelIdPage = async ({ params }: ChannelIdPageProps) => {
   });
 
   if (!channel || !member) {
-    redirect("/");
+    return redirect("/");
   }
 
   return (
