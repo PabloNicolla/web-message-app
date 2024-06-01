@@ -12,6 +12,8 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { EmojiPicker } from "@/components/emoji-picker";
 
+import { useModal } from "@/hooks/use-modal-store";
+
 interface ChatInputProps {
   apiUrl: string;
   query: Record<string, any>;
@@ -25,6 +27,7 @@ const formSchema = z.object({
 
 export const ChatInput = ({ apiUrl, name, query, type }: ChatInputProps) => {
   const router = useRouter();
+  const { onOpen } = useModal();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -63,7 +66,7 @@ export const ChatInput = ({ apiUrl, name, query, type }: ChatInputProps) => {
                 <div className="relative p-4 pb-6">
                   <button
                     type="button"
-                    onClick={() => {}}
+                    onClick={() => onOpen("messageFile", { apiUrl, query })}
                     className="absolute left-8 top-7 flex h-[24px] w-[24px] items-center justify-center rounded-full bg-zinc-500 p-1 transition hover:bg-zinc-600 dark:bg-zinc-400 dark:hover:bg-zinc-300"
                   >
                     <Plus className="text-white dark:text-[#313338]" />
