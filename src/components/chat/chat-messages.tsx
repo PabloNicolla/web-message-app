@@ -73,6 +73,7 @@ export const ChatMessages = ({
       <ChatWelcome type={type} name={name} />
       <div className="mt-auto flex flex-col-reverse">
         {data?.pages?.map((group, i) => (
+          // skipcq: JS-0437
           <Fragment key={i}>
             {group.items.map((message: MessageWithMemberWithProfile) => (
               <div key={message.id}>{message.content}</div>
