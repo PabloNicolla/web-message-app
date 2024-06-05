@@ -45,7 +45,7 @@ export default async function handler(
     });
 
     if (!server) {
-      return res.status(400).json({ error: "Server not found" });
+      return res.status(404).json({ error: "Server not found" });
     }
 
     const channel = await db.channel.findFirst({
@@ -56,7 +56,7 @@ export default async function handler(
     });
 
     if (!channel) {
-      return res.status(400).json({ error: "Channel not found" });
+      return res.status(404).json({ error: "Channel not found" });
     }
 
     const member = server.members.find(
@@ -64,7 +64,7 @@ export default async function handler(
     );
 
     if (!member) {
-      return res.status(400).json({ error: "Member not found" });
+      return res.status(404).json({ error: "Member not found" });
     }
 
     let message = await db.message.findFirst({
@@ -82,7 +82,7 @@ export default async function handler(
     });
 
     if (!message || message.deleted) {
-      return res.status(400).json({ error: "Message not found" });
+      return res.status(404).json({ error: "Message not found" });
     }
 
     const isMessageOwner = message.memberId == member.id;
