@@ -87,7 +87,7 @@ export default async function handler(
       return res.status(404).json({ error: "Message not found" });
     }
 
-    const isMessageOwner = directMessage.memberId == member.id;
+    const isMessageOwner = directMessage.memberId === member.id;
     const isAdmin = member.role === MemberRole.ADMIN;
     const isModerator = member.role === MemberRole.MODERATOR;
     const canModify = isMessageOwner || isAdmin || isModerator;
