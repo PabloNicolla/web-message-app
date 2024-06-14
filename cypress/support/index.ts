@@ -15,6 +15,15 @@ declare global {
        * @example cy.loginWithClerk()
        */
       loginWithClerk(): Chainable<void>;
+
+      /**
+       * Custom command to get server and channel IDs from the URL
+       * @example cy.getServerAndChannelIds()
+       */
+      getServerAndChannelIds(): Chainable<{
+        serverId: string;
+        channelId: string;
+      }>;
     }
   }
 }

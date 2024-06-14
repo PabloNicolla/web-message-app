@@ -59,7 +59,12 @@ export const DeleteServerModal = () => {
             <Button disabled={isLoading} onClick={onClose} variant={"ghost"}>
               Cancel
             </Button>
-            <Button disabled={isLoading} onClick={onClick} variant={"primary"}>
+            <Button
+              data-test-cy="delete-server-button"
+              disabled={isLoading}
+              onClick={onClick}
+              variant={"primary"}
+            >
               Confirm
             </Button>
           </div>

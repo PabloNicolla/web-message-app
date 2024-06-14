@@ -37,7 +37,7 @@
 // }
 
 Cypress.Commands.add("dataCy", (value: string) => {
-  return cy.get(`[data-cy=${value}]`);
+  return cy.get(`[data-test-cy="${value}"]`);
 });
 
 Cypress.Commands.add("loginWithClerk", () => {
@@ -54,6 +54,23 @@ Cypress.Commands.add("loginWithClerk", () => {
     'button[data-localization-key="formButtonPrimary"]',
     /continue/i,
   ).click();
+});
 
-  cy.url().should("equal", "http://localhost:3000/");
+Cypress.Commands.add("getServerAndChannelIds", () => {
+  // Wait for the final URL
+  cy.location("pathname", { timeout: 10000 })
+    .should("match", /\/servers\/[^/]+\/channels\/[^/]+/)
+    .then((pathname) => {
+      const regex = /\/servers\/([^/]+)\/channels\/([^/]+)/;
+      const match = pathname.match(regex);
+
+      if (match) {
+        const serverId = match[1];
+        const channelId = match[2];
+
+        cy.wrap({ serverId, channelId });
+      } else {
+        throw new Error("Server and Channel IDs not found in URL");
+      }
+    });
 });

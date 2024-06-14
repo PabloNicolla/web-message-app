@@ -35,7 +35,11 @@ export const NavigationSidebar = async () => {
       <Separator className="mx-auto h-[2px] w-10 rounded-md bg-zinc-300 dark:bg-zinc-700" />
       <ScrollArea className="w-full flex-1">
         {servers.map((server) => (
-          <div key={server.id} className="mb-4">
+          <div
+            data-test-cy={`server-item-${server.name}`}
+            key={server.id}
+            className="mb-4"
+          >
             <NavigationItem
               id={server.id}
               name={server.name}
@@ -46,14 +50,16 @@ export const NavigationSidebar = async () => {
       </ScrollArea>
       <div className="mt-auto flex flex-col items-center gap-y-4 pb-3">
         <ModeToggle />
-        <UserButton
-          afterSignOutUrl="/"
-          appearance={{
-            elements: {
-              avatarBox: "h-[48px] w-[48px]",
-            },
-          }}
-        />
+        <div data-cy="user-avatar-button">
+          <UserButton
+            afterSignOutUrl="/"
+            appearance={{
+              elements: {
+                avatarBox: "h-[48px] w-[48px]",
+              },
+            }}
+          />
+        </div>
       </div>
     </div>
   );
