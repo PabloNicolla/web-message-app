@@ -8,7 +8,7 @@ describe("create and delete server", () => {
     return true;
   });
 
-  it("test", () => {
+  it("main test", () => {
     // Step 1: Visit the home page and perform login
     cy.visit("/");
 
