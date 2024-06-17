@@ -66,7 +66,12 @@ export const DeleteChannelModel = () => {
             <Button disabled={isLoading} onClick={onClose} variant={"ghost"}>
               Cancel
             </Button>
-            <Button disabled={isLoading} onClick={onClick} variant={"primary"}>
+            <Button
+              data-test-cy="delete-channel-confirm-button"
+              disabled={isLoading}
+              onClick={onClick}
+              variant={"primary"}
+            >
               Confirm
             </Button>
           </div>
