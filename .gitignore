@@ -40,3 +40,6 @@ next-env.d.ts
 # cypress
 1-getting-started
 2-advanced-examples
+cypress/fixtures/profile.json
+cypress/fixtures/users.json
+cypress/screenshots/my-image.png
