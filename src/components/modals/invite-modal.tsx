@@ -87,7 +87,9 @@ export const InviteModal = () => {
             size={"sm"}
             className="mt-4 text-xs text-zinc-500"
           >
-            Generate a new link
+            <div data-test-cy="generate-invite-server-button">
+              Generate a new link
+            </div>
             <RefreshCw className="ml-2 h-4 w-4" />
           </Button>
         </div>

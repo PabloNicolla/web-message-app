@@ -121,6 +121,7 @@ export const EditServerModal = () => {
                     </FormLabel>
                     <FormControl>
                       <Input
+                        data-test-cy="edit-server-modal-name-input"
                         disabled={isLoading}
                         className="border-0 bg-zinc-300/50 text-black focus-visible:ring-0 focus-visible:ring-offset-0"
                         placeholder="Enter server name"
@@ -133,7 +134,11 @@ export const EditServerModal = () => {
               />
             </div>
             <DialogFooter className="bg-gray-100 px-6 py-4">
-              <Button disabled={isLoading} variant={"primary"}>
+              <Button
+                data-test-cy="edit-server-modal-submit-button"
+                disabled={isLoading}
+                variant={"primary"}
+              >
                 Save
               </Button>
             </DialogFooter>
