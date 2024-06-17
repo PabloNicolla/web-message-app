@@ -54,6 +54,7 @@ describe("create and delete server", () => {
     // Step 7 open new server
     cy.wait(1000);
     cy.dataCy("server-item-my new server").click();
+    cy.wait(5000);
 
     // Step 8 open server dropdown
     cy.dataCy("server-header-dropdown").click();
